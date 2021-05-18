@@ -8,7 +8,7 @@ import javax.imageio.IIOException;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import spring5_db_study.config.AppCix;
+import spring5_db_study.config.AppCtx;
 import spring5_db_study.spring.Member;
 import spring5_db_study.spring.MemberDao;
 
@@ -17,7 +17,7 @@ public class MainForMemberDao {
 	private static MemberDao memberDao;
 
 	public static void main(String[] args) throws IIOException {
-		try (AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(AppCix.class);) {
+		try (AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(AppCtx.class);) {
 			memberDao = ctx.getBean(MemberDao.class);
 			memberDao.insert(new Member("test@test.co.kr", "1234", "test", LocalDateTime.now()));
 			selectAll();

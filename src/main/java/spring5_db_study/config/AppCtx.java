@@ -8,14 +8,6 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import spring5_db_study.spring.ChangePasswordService;
-import spring5_db_study.spring.MemberDao;
-import spring5_db_study.spring.MemberInfoPrinter;
-import spring5_db_study.spring.MemberLIstPrinter;
-import spring5_db_study.spring.MemberPrinter;
-import spring5_db_study.spring.MemberRegisterService;
-import spring5_db_study.spring.VersionPrinter;
-
 @Configuration
 @ComponentScan(basePackages = { "spring5_db_study.spring" })
 @EnableTransactionManagement
@@ -44,44 +36,4 @@ public class AppCtx {
 		return tm;
 	}
 	
-	@Bean
-	public MemberDao memberDao() {
-		return new MemberDao();
-	}
-
-	@Bean
-	public MemberPrinter memberPrinter() {
-		return new MemberPrinter();
-	}
-
-	@Bean
-	public MemberLIstPrinter listPrinter() {
-		return new MemberLIstPrinter();
-	}
-
-	@Bean
-	public MemberInfoPrinter infoPrinter() {
-		MemberInfoPrinter infoPrinter = new MemberInfoPrinter();
-		return infoPrinter;
-	}
-
-	@Bean
-	public VersionPrinter versionPrinter() {
-		VersionPrinter versionPrinter = new VersionPrinter();
-		versionPrinter.setMajorVersion(5);
-		versionPrinter.setMinorVersion(0);
-		return versionPrinter;
-	}
-
-	@Bean
-	public MemberRegisterService memberRegSvc() {
-		return new MemberRegisterService();
-	}
-
-	@Bean
-	public ChangePasswordService changePwSvc() {
-		ChangePasswordService PwSvc = new ChangePasswordService();
-		return PwSvc;
-	}
-
 }

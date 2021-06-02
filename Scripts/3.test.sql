@@ -11,7 +11,10 @@ update `member` set password = ?, name = ?, regdate = ? where email = "test@test
 delete from `member` where email = ?;
 delete from `member` where id >= 1;
 
-
+select *
+from `member` 
+where regdate between '2021-05-17 00' and '2021-05-18 00'
+order by regdate desc;
 
 
 
